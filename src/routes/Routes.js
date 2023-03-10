@@ -3,7 +3,7 @@ import Login from '../pages/login';
 import Products from '../pages/Products'
 import Home from '../pages/Home'
 import NotFound from '../pages/NotFound';
-import {ProtectedRoute} from '../components/ProtectedRoute'
+// import {ProtectedRoute} from '../components/ProtectedRoute'
 
 function App() {
 

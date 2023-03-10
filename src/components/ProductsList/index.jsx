@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from "react-redux"
 import { addItem, editItem } from '../../features/cart/cartSlice'
 import {upItem, updateTotal } from '../../features/total/totalSlice';
-import { useState } from "react";
 
 function Index(props) {
   const cartState =  useSelector(state => state.cart)
   const totalState = useSelector(state => state.total.value)
-  const totalItems = useSelector(state => state.total.items)
+
   
   const dispatch = useDispatch()
 

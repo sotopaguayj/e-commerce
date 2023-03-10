@@ -1,6 +1,6 @@
-import { useNavigate, Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import GetCookie from '../../hooks/getCookie'
-export const ProtectedRoute =({token, children})=>{
+export const ProtectedRoute =()=>{
   const auth = GetCookie('token')
 
   if(auth !== 'asd'){

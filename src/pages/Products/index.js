@@ -12,7 +12,6 @@ function Index() {
   const itemsTotal = useSelector(state => state.total)
 
   const [name, setName] = useState('')
-  const [limit, setLimit] = useState(20)
   const [load, setLoad] = useState(false);
   const [value, setValue] = useState([]);
   const [log, setLog] = useState(true)
@@ -23,7 +22,7 @@ function Index() {
   })
   const navigate = useNavigate()
 
-  let URL = `https://api.escuelajs.co/api/v1/products?offset=${page.ofset}&limit=${limit}&title=${name}`
+  let URL = `https://api.escuelajs.co/api/v1/products?offset=${page.ofset}&limit=${20}&title=${name}`
 
   const showCart = ()=>{
     setSee(!see)
@@ -80,7 +79,7 @@ function Index() {
       .finally(()=> setLoad(false))
     }
     getValues()
-  },[name, page, log, limit])
+  },[name, page, log])
 
   return (
     <div className=''>
@@ -138,7 +137,7 @@ function Index() {
           </div>
         </div> 
       :
-      value.length != 0 
+      value.length !== 0 
       ?  <ProducsList list={value} />
       : <div className='w-full text-2xl grid place-content-center text-teal-600'>Not Found</div>
       }

@@ -6,11 +6,6 @@ import SetCookie from '../../hooks/setCookie'
 
 function Index() {
   const location = useLocation()
-  //redux call
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const dispatch = useDispatch()
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const tokenState = useSelector(state => state.token)
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { register, handleSubmit, formState:{errors} } = useForm();
   // eslint-disable-next-line react-hooks/rules-of-hooks
