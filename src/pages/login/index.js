@@ -1,6 +1,6 @@
 import {useForm} from 'react-hook-form';
 import {useNavigate, Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2'
 import SetCookie from '../../hooks/setCookie'
 
