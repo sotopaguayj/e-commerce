@@ -19,7 +19,7 @@ function Modal(props) {
   const buy = () => {
     if(totalItems === 0){
     Swal.fire({
-      text: '🚫 nothing to buy',
+      text: '🔴 nothing to buy',
       position: 'top-end',
       toast:true,
       showConfirmButton: false,
@@ -43,13 +43,17 @@ function Modal(props) {
           dispatch(updateTotal(0))
           dispatch(emptyItems())
           dispatch(emptyCart())
-          toast.success('Successfully purchase!',{
-            style:{
-              borderRadius: '10px',
-              background: '#333',
-              color: '#fff',
-            }
-          })
+         Swal.fire({
+          text: "🟢 successfully purchase",
+          toast:true,
+          showConfirmButton: false,
+          background: '#27272a',
+          color: '#FFF',
+          position: 'top-end',
+          timer: '2500',
+          timerProgressBar: true
+
+         })
         }
       })
 

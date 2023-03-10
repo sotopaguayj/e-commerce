@@ -21,7 +21,7 @@ function Index() {
       }
     }else{
       Swal.fire({
-        text:'🚫 Wrong Data',
+        text:'🔴 Wrong Data',
         toast: true,
         timer: 2500,
         timerProgressBar: true,
