@@ -11,7 +11,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home />} />
-        {/* <Route path='/e-commerce/' element={<Home />} /> */}
+        <Route path='/e-commerce/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         {/* <Route element={<ProtectedRoute/> }> */}
         <Route path='/products' element={<Products />} />
