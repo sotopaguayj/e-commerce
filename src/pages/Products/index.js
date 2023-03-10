@@ -53,7 +53,7 @@ function Index() {
   }
   const logOut = () =>{
     Swal.fire({
-      title: 'you are Loging Out?',
+      title: 'you are logging out',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#115e59',

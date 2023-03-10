@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { deleteItem,dimissItem, editItem, emptyCart } from "../../features/cart/cartSlice"
 import { delItem, updateTotal, emptyItems } from "../../features/total/totalSlice"
 import Swal from 'sweetalert2'
+import toast, {Toaster} from 'react-hot-toast'
 
 
 function Modal(props) {
@@ -17,14 +18,41 @@ function Modal(props) {
 
   const buy = () => {
     if(totalItems === 0){
-      alert('add products')
+    Swal.fire({
+      text: '🚫 nothing to buy',
+      position: 'top-end',
+      toast:true,
+      showConfirmButton: false,
+      background: '#27272a',
+      timer: 2500,
+      timerProgressBar: true,
+      color: '#FFF',
+    })
     }else{
-      if(window.confirm('finalize purchase?')){
-        dispatch(updateTotal(0))
-        dispatch(emptyItems())
-        dispatch(emptyCart())
-        alert('successful purchase');
-      }
+      Swal.fire({
+        title: 'Finalize purchase?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#115e59',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continue',
+        background: '#27272a',
+        color: '#FFF',
+      }).then((result)=>{
+        if(result.isConfirmed){
+          dispatch(updateTotal(0))
+          dispatch(emptyItems())
+          dispatch(emptyCart())
+          toast.success('Successfully purchase!',{
+            style:{
+              borderRadius: '10px',
+              background: '#333',
+              color: '#fff',
+            }
+          })
+        }
+      })
+
     }
   }
   const dimis = e =>{
@@ -112,6 +140,10 @@ function Modal(props) {
       }
       </div>
       </div>
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+      />
     </div>
   )
 }

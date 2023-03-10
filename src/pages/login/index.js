@@ -2,7 +2,6 @@ import {useForm} from 'react-hook-form';
 import {useNavigate, Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2'
-import toast, {Toaster, toaster} from 'react-hot-toast'
 import SetCookie from '../../hooks/setCookie'
 
 function Index() {
@@ -26,16 +25,16 @@ function Index() {
         navigate("/")
       }
     }else{
-      toast('Wrong Data',
-      {
-        icon: '🚫', 
-        style: {
-          borderRadius: '10px',
-          background: '#333',
-          color: '#fff',
-        },
-      }
-    );
+      Swal.fire({
+        text:'🚫 Wrong Data',
+        toast: true,
+        timer: 2500,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        background: '#27272a',
+        color: '#FFF',
+        position: 'top-end'
+      })
     }
   }
   return (
@@ -92,15 +91,11 @@ function Index() {
         <div>
           <Link 
             className='transition text-zinc-700 text-md font-semibold hover:text-teal-700' 
-            to='/forget'>
+            >
             I can't Login
           </Link>
         </div>
       </div>
-      <Toaster 
-        position="top-right"
-        reverseOrder={false}
-      />
     </div>
   )
 }

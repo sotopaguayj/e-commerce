@@ -24,11 +24,10 @@
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: rgb(17, 94, 89);
-    border-radius: 3px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #181818;
+    background: rgb(15, 118, 110);
   }
 }

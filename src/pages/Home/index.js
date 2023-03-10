@@ -7,7 +7,7 @@ function Index() {
   const navigate = useNavigate()
   const circle = 'bg-teal-600 h-32 w-32 flex rounded-full text-5xl font-bold text-zinc-800 grid place-content-center';
   return (
-    <div>
+    <div className="">
       <div className='h-16 bg-teal-800 grid grid-cols-2 justify-items-center items-center'>
       <span className='text-4xl font-bold text-teal-600'>E-Commerce</span>
         <div className='flex justify-center gap-5'>
