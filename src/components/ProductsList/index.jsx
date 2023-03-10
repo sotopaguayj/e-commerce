@@ -1,11 +1,12 @@
 import { useSelector, useDispatch } from "react-redux"
 import { addItem, editItem } from '../../features/cart/cartSlice'
 import {upItem, updateTotal } from '../../features/total/totalSlice';
+import GetCookie from '../../hooks/getCookie'
 
 function Index(props) {
   const cartState =  useSelector(state => state.cart)
   const totalState = useSelector(state => state.total.value)
-
+  const auth = GetCookie('token')
   
   const dispatch = useDispatch()
 
@@ -36,7 +37,11 @@ function Index(props) {
               </div>
               <div className='hidden group-hover:flex  flex-col justify-between items-center gap-3 py-3 h-full'>
                 <span className="text-white">{item.description}</span>
-                <button onClick={()=>catchValue(item)} className="bg-teal-800 hover:bg-teal-900 text-zinc-200 font-bold py-2 px-4 border-b-4 border-teal-700 hover:border-teal-900 rounded">Add Cart</button>
+                {
+                  auth
+                  ? <button onClick={()=>catchValue(item)} className="bg-teal-800 hover:bg-teal-900 text-zinc-200 font-bold py-2 px-4 border-b-4 border-teal-700 hover:border-teal-900 rounded">Add Cart</button>
+                  : <span className="text-zinc-500">you need login to buy</span>
+                }
               </div>
             </li>
           ))
